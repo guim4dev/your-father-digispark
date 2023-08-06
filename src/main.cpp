@@ -1,5 +1,6 @@
+// This DigiSpark script opens up Rick Astley's - Never Gonna Give You Up and also a fake Windows update screen and then maximizes it using F11
 #include "Arduino.h"
-#include "YourFatherDigispark.h"
+#include "DigiKeyboard.h"
 
 void setup()
 {
@@ -7,34 +8,29 @@ void setup()
 }
 void loop()
 {
-  // TODO: discover layout the correct one automatically
-  // Use DigiKeyboardPtBr for PT-BR keyboard layout; Use DigiKeyboard for US keyboard layout
-  DigiKeyboardDevice keyboard = DigiKeyboardPtBr;
-  // DigiKeyboardDevice keyboard = DigiKeyboard;
-
-  keyboard.delay(2000);
+  DigiKeyboard.delay(2000);
   // Press CTRL + ALT + T to OPEN TERMINAL
-  keyboard.sendKeyStroke(MOD_CONTROL_LEFT, MOD_ALT_LEFT | KEY_T);
-  keyboard.delay(3000);
+  DigiKeyboard.sendKeyStroke(MOD_CONTROL_LEFT, MOD_ALT_LEFT | KEY_T);
+  DigiKeyboard.delay(3000);
   // OPEN CHROME
-  keyboard.print("google-chrome-stable");
-  keyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.print("google-chrome-stable");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
 
-  keyboard.delay(3000);
+  DigiKeyboard.delay(3000);
   // OPEN YOUTUBE
-  keyboard.print("https://youtu.be/dQw4w9WgXcQ?t=43s");
-  keyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.print("https://youtu.be/dQw4w9WgXcQ?t=43s");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
 
-  keyboard.delay(3000);
+  DigiKeyboard.delay(3000);
   // OPEN NEW TAB
-  keyboard.sendKeyStroke(MOD_CONTROL_LEFT, KEY_T);
+  DigiKeyboard.sendKeyStroke(MOD_CONTROL_LEFT, KEY_T);
 
   // OPEN FAKE WINDOWS UPDATE
-  keyboard.delay(3000);
-  keyboard.print("https://fakeupdate.net/win10ue");
-  keyboard.sendKeyStroke(KEY_ENTER);
-  keyboard.delay(3000);
-  keyboard.sendKeyStroke(KEY_F11);
+  DigiKeyboard.delay(3000);
+  DigiKeyboard.print("https://fakeupdate.net/win10ue");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(3000);
+  DigiKeyboard.sendKeyStroke(KEY_F11);
   for (;;)
   { /*empty*/
   }
