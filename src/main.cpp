@@ -3,8 +3,39 @@
 #include "DigiKeyboard.h"
 
 // choose your keyboard layout:
-// #define LAYOUT_US_ENGLISH
-#define LAYOUT_PORTUGUESE_BRAZILIAN
+#define LAYOUT_US_ENGLISH
+// #define LAYOUT_PORTUGUESE_BRAZILIAN
+
+void openLinuxChrome()
+{
+  // Press CTRL + ALT + T to OPEN TERMINAL
+  DigiKeyboard.sendKeyStroke(KEY_T, MOD_CONTROL_LEFT | MOD_ALT_LEFT);
+  DigiKeyboard.delay(500);
+
+  // OPEN CHROME
+  DigiKeyboard.print("google-chrome-stable");
+  DigiKeyboard.delay(250);
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+
+  // OPEN NEW TAB
+  DigiKeyboard.delay(250);
+  DigiKeyboard.sendKeyStroke(KEY_T, MOD_CONTROL_LEFT);
+}
+
+void openNewTabWithUrl(const char *url)
+{
+  // OPEN NEW TAB
+  DigiKeyboard.sendKeyStroke(KEY_T, MOD_CONTROL_LEFT);
+  // OPEN URL
+  DigiKeyboard.print(url);
+  DigiKeyboard.delay(250);
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+}
+
+void toggleFullscreen()
+{
+  DigiKeyboard.sendKeyStroke(KEY_F11);
+}
 
 void setup()
 {
@@ -13,28 +44,17 @@ void setup()
 void loop()
 {
   DigiKeyboard.delay(2000);
-  // Press CTRL + ALT + T to OPEN TERMINAL
-  DigiKeyboard.sendKeyStroke(MOD_CONTROL_LEFT, MOD_ALT_LEFT | KEY_T);
-  DigiKeyboard.delay(3000);
-  // OPEN CHROME
-  DigiKeyboard.print("google-chrome-stable");
-  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.sendKeyPress(0);
 
-  DigiKeyboard.delay(3000);
-  // OPEN YOUTUBE
-  DigiKeyboard.print("https://youtu.be/dQw4w9WgXcQ?t=43s");
-  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  openLinuxChrome();
+  DigiKeyboard.delay(1000);
 
-  DigiKeyboard.delay(3000);
-  // OPEN NEW TAB
-  DigiKeyboard.sendKeyStroke(MOD_CONTROL_LEFT, KEY_T);
+  openNewTabWithUrl("https://youtu.be/dQw4w9WgXcQ?t=43s");
+  DigiKeyboard.delay(1000);
 
-  // OPEN FAKE WINDOWS UPDATE
-  DigiKeyboard.delay(3000);
-  DigiKeyboard.print("https://fakeupdate.net/win10ue");
-  DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.delay(3000);
-  DigiKeyboard.sendKeyStroke(KEY_F11);
+  openNewTabWithUrl("https://fakeupdate.net/win10ue");
+  DigiKeyboard.delay(250);
+  toggleFullscreen();
   for (;;)
   { /*empty*/
   }
