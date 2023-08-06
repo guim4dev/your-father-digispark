@@ -2,6 +2,10 @@
 #include "Arduino.h"
 #include "DigiKeyboard.h"
 
+// choose your keyboard layout: 
+// #define LAYOUT_US_INTERNATIONAL
+#define LAYOUT_PORTUGUESE_BRAZILIAN
+
 void setup()
 {
   // empty
