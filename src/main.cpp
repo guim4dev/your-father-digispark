@@ -22,6 +22,20 @@ void openLinuxChrome()
   DigiKeyboard.sendKeyStroke(KEY_T, MOD_CONTROL_LEFT);
 }
 
+void openWindowsChrome()
+{
+  // Press WIN + R to OPEN RUN
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(500);
+  DigiKeyboard.print("chrome");
+
+  DigiKeyboard.delay(250);
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+
+  DigiKeyboard.delay(250);
+  DigiKeyboard.sendKeyStroke(KEY_T, MOD_CONTROL_LEFT);
+}
+
 void openNewTabWithUrl(const char *url)
 {
   // OPEN NEW TAB
@@ -46,7 +60,9 @@ void loop()
   DigiKeyboard.delay(2000);
   DigiKeyboard.sendKeyPress(0);
 
-  openLinuxChrome();
+  // TODO: discover browser and OS
+  // openLinuxChrome();
+  openWindowsChrome();
   DigiKeyboard.delay(1000);
 
   openNewTabWithUrl("https://youtu.be/dQw4w9WgXcQ?t=43s");
